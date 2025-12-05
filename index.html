@@ -1,131 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divakar M | Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #0c0f16;
-            color: #f0f0f0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Challenge</title>
 
-        header {
-            background: #111726;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.6);
-        }
+<style>
+    body {
+        margin: 0;
+        background: #0b0f19;
+        font-family: "Segoe UI", sans-serif;
+        color: #e9eefc;
+        overflow: hidden;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #00e0ff;
-        }
+    /* Animated glowing background gradients */
+    .bg-glow {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.35;
+        animation: drift 18s infinite alternate ease-in-out;
+        z-index: -10;
+    }
 
-        header p {
-            margin: 5px 0;
-            font-size: 1.1rem;
-            color: #aaa;
-        }
+    .blue { background: #3a7bd5; top: -10%; left: -10%; }
+    .teal { background: #2bd9d9; top: 40%; left: 70%; animation-duration: 22s; }
+    .green { background: #15ff99; top: 70%; left: 20%; animation-duration: 26s; }
+    .orange { background: #ff8f3c; top: 10%; left: 60%; animation-duration: 20s; }
 
-        .container {
-            width: 80%;
-            max-width: 1000px;
-            margin: auto;
-            padding: 30px 0;
-        }
+    @keyframes drift {
+        from { transform: translateY(0px) translateX(0px); }
+        to { transform: translateY(80px) translateX(40px); }
+    }
 
-        section {
-            margin-bottom: 50px;
-            padding: 25px;
-            background: #161b27;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.4);
-        }
+    /* Kubernetes hexagon icons floating */
+    .kube-hex {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background: rgba(0,140,255,0.15);
+        border: 2px solid rgba(0,150,255,0.35);
+        clip-path: polygon(25% 5%, 75% 5%, 95% 50%, 75% 95%, 25% 95%, 5% 50%);
+        animation: floatHex 12s infinite ease-in-out;
+        filter: blur(1px);
+    }
 
-        section h2 {
-            color: #00e0ff;
-            margin-bottom: 15px;
-            border-left: 4px solid #00e0ff;
-            padding-left: 10px;
-        }
+    @keyframes floatHex {
+        0% { transform: translateY(0px) rotate(0deg); opacity: 0.5; }
+        50% { transform: translateY(-40px) rotate(20deg); opacity: 0.8; }
+        100% { transform: translateY(0px) rotate(0deg); opacity: 0.5; }
+    }
 
-        .skills-list, .projects-list {
-            list-style: none;
-            padding: 0;
-        }
+    .hex1 { top: 20%; left: 10%; }
+    .hex2 { top: 60%; left: 80%; animation-delay: -2s; }
+    .hex3 { top: 75%; left: 35%; animation-delay: -4s; }
 
-        .skills-list li, .projects-list li {
-            background: #1f2535;
-            margin: 8px 0;
-            padding: 10px 15px;
-            border-radius: 6px;
-        }
+    /* Title */
+    #title {
+        text-align: center;
+        font-size: 3.2rem;
+        font-weight: 800;
+        margin-top: 60px;
+        letter-spacing: 4px;
+        background: linear-gradient(to right, #00d2ff, #3a7bd5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #111726;
-            margin-top: 30px;
-            color: #aaa;
-        }
-    </style>
+    /* Container for statements */
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 80px;
+    }
+
+    .card {
+        width: 40%;
+        background: rgba(255,255,255,0.04);
+        padding: 35px;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.08);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 0 40px rgba(0,150,255,0.25);
+        transition: 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 50px rgba(0,200,255,0.5);
+    }
+
+    .label {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #00c3ff;
+        margin-bottom: 12px;
+    }
+
+    .text {
+        font-size: 1.4rem;
+        opacity: 0.9;
+    }
+</style>
+
 </head>
-
 <body>
-    <header>
-        <h1>Divakar M</h1>
-        <p>BCA Student | Cybersecurity Enthusiast</p>
-    </header>
 
-    <div class="container">
+<!-- Glowing animated background blobs -->
+<div class="bg-glow blue"></div>
+<div class="bg-glow teal"></div>
+<div class="bg-glow green"></div>
+<div class="bg-glow orange"></div>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Hi! I'm <strong>Divakar M</strong>, a BCA student passionate about cybersecurity, 
-                ethical hacking, and secure system design. I enjoy learning how systems work, 
-                identifying vulnerabilities, and creating secure digital environments.
-            </p>
-        </section>
+<!-- Floating Kubernetes hexagons -->
+<div class="kube-hex hex1"></div>
+<div class="kube-hex hex2"></div>
+<div class="kube-hex hex3"></div>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul class="skills-list">
-                <li>Network Security Fundamentals</li>
-                <li>Vulnerability Assessment & Reporting</li>
-                <li>Linux (Basic to Intermediate)</li>
-                <li>Penetration Testing (Beginner)</li>
-                <li>Cyber Threat Analysis</li>
-                <li>Python for Security Scripting</li>
-                <li>Social Engineering Basics</li>
-                <li>Web Security (XSS, CSRF, SQLi basics)</li>
-            </ul>
-        </section>
+<!-- Title -->
+<div id="title">DevOps Challenge</div>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <ul class="projects-list">
-                <li><strong>Basic Port Scanner (Python)</strong> – Created a simple network scanning tool to identify open ports.</li>
-                <li><strong>Personal Cybersecurity Blog</strong> – Wrote beginner-friendly articles explaining security concepts.</li>
-                <li><strong>Password Strength Checker</strong> – Developed a script that checks password vulnerabilities.</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <strong>your-email@example.com</strong></p>
-            <p>GitHub: <strong>github.com/yourusername</strong></p>
-        </section>
-
+<!-- Two statement cards -->
+<div class="wrapper">
+    <div class="card">
+        <div class="label">Statement A</div>
+        <div class="text" id="statementA">Secrets should be stored in plain text inside repositories.</div>
     </div>
 
-    <footer>
-        © 2025 Divakar M | All Rights Reserved
-    </footer>
+    <div class="card">
+        <div class="label">Statement B</div>
+        <div class="text" id="statementB">Secrets must be stored safely using secret managers.</div>
+    </div>
+</div>
+
 </body>
 </html>
-
